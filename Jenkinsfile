@@ -55,7 +55,7 @@ pipeline {
                        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-crendentails-pank']]){
                             dir('infra') {
                                 sh 'echo "=================Terraform Apply=================="'
-                                sh 'terraform apply --auto-approve'
+                                sh 'terraform apply --auto-approve --var-file=dev.terraform.tfvars'
                             }
                         }
                     }
